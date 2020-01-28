@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Promact
+                    Promact Infotech
                 </div>
 
                 <div class="links">

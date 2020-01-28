@@ -11,7 +11,8 @@ phases:
     # login to Elastic container registry
     - eval $(aws ecr get-login --region us-east-2 --no-include-email | sed 's|https://||')
     - REPOSITORY_URI=897701442878.dkr.ecr.us-east-2.amazonaws.com/laravel
-    - IMAGE_TAG=latest
+    - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+    - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
     - echo Build started on `date`
