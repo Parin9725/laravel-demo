@@ -26,3 +26,14 @@ phases:
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - printf '[{"name":"hello-world","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imageDetail.json
       - printf '[{"name":"hello-world","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG
+      - cat imageDetail.json
+      - cat appspec.yaml
+artifacts:
+   files:
+      - '**/*'
+   name: myname-$(date +%Y-%m-%d)
+      #- imageDetail.json
+      #- appspec.yaml
+      #- taskdef.json
+      #- imageDetail.json
+
