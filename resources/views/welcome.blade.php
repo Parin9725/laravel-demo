@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Parin
+                    Promact
                 </div>
 
                 <div class="links">
