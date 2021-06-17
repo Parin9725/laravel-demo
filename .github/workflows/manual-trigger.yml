@@ -27,6 +27,7 @@ jobs:
           echo " Build Frontend"
   Create_Server:
     runs-on: ubuntu-latest
+    if: always()
     needs: [Build_API,Build_Jupyter,Build_Frontend]
     steps:
       - run: |
