@@ -9,11 +9,11 @@ on:
         description: 'location'
         required: false
         default: 'The Octoverse'
+
 jobs:
-  Build_API:
+  say_hello:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - run: |
-          mkdir -p backend/code/shared
-          echo "Done"
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "- in ${{ github.event.inputs.home }}!"
