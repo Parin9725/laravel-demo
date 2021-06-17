@@ -31,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     needs: [Build_API,Build_Jupyter,Build_Frontend]
+    if: needs.Build_API.result == 'success'
     steps:
       - run: |
           echo "Creater Server"
