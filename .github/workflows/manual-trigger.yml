@@ -9,7 +9,7 @@ on:
 jobs:
   say_hello:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mode }} == 'full'
+    if: ${{ github.event.inputs.mode == 'full' }}
     steps:
       - run: |
           echo "Hello ${{ github.event.inputs.mode }}!"
