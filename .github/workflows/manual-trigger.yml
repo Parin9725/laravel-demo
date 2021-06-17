@@ -30,7 +30,7 @@ jobs:
   Create_Server:
     runs-on: ubuntu-latest
     needs: [Build_API,Build_Jupyter,Build_Frontend]
-    if: needs.Build_API.result == 'success' || needs.Build_API.result == 'skipped' || needs.Build_Jupyter.result == 'success' || needs.Build_Jupyter.result == 'skipped' || needs.Build_Frontend.result == 'success' || needs.Build_Frontend.result == 'skipped'
+    if: needs.Build_API.result == 'success' || needs.Build_API.result == 'skipped' || needs.Build_Frontend.result == 'success' || needs.Build_Frontend.result == 'skipped'
     steps:
       - run: |
           echo "Creater Server"
