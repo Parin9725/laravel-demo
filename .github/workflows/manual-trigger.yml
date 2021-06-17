@@ -9,6 +9,7 @@ on:
 jobs:
   Build_API:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.mode == 'full' && github.event.inputs.mode == 'minmum' }}
     steps:
       - run: |
           echo "Build API"
@@ -22,12 +23,13 @@ jobs:
 
   Build_Frontend:
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.mode == 'full' && github.event.inputs.mode == 'minmum' }}
     steps:
       - run: |
           echo " Build Frontend"
   Create_Server:
     runs-on: ubuntu-latest
-    if: ${{ cancelled() }}
+    if: always()
     needs: [Build_API,Build_Jupyter,Build_Frontend]
     steps:
       - run: |
