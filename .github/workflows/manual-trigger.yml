@@ -9,7 +9,7 @@ on:
 jobs:
   Build_API:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mode == 'full' && github.event.inputs.mode == 'minmum' }}
+    if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'minmum' }}
     steps:
       - run: |
           echo "Build API"
@@ -23,7 +23,7 @@ jobs:
 
   Build_Frontend:
     runs-on: ubuntu-latest
-    if: ${{ github.event.inputs.mode == 'full' && github.event.inputs.mode == 'minmum' }}
+    if: ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'minmum' }}
     steps:
       - run: |
           echo " Build Frontend"
