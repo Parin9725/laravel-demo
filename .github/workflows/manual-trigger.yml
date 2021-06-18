@@ -39,5 +39,6 @@ jobs:
                 echo "Script Exited"
                 exit 1
           fi
-      
-
+      - name: SCP TO Server
+        run: |
+          echo "Copy Files"
