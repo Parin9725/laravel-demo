@@ -34,7 +34,13 @@ jobs:
     steps:
       - run: |
           if ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'minmum' }}; then
-                echo "Server Creating"
+                if ${{ github.event.inputs.mode == 'full' }}; then
+                      export SERVER_SIZE="CX51"
+                else
+                     export SERVER_SIZE="CX11"
+                fi
+
+                echo "Server Creating $SERVER_SIZE"
           else
                 echo "Script Exited"
                 exit 1
