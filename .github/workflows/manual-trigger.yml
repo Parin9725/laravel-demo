@@ -37,7 +37,7 @@ jobs:
                 echo "Server Creating"
           else
                 echo "Script Exited"
-                exit
+                exit 1
           fi
-          
+      
 
