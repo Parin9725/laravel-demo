@@ -30,9 +30,15 @@ jobs:
   Create_Server:
     runs-on: ubuntu-latest
     if: needs.Build_API.result == 'skipped' || needs.Build_API.result == 'success' && needs.Build_Frontend.result == 'skipped' || needs.Build_Frontend.result == 'success' &&  needs.Build_Jupyter.result == 'skipped' || needs.Build_Jupyter.result == 'success'
-    #if: always() || needs.Build_API.result == 'success' || needs.Build_API.result == 'skipped' || needs.Build_Frontend.result == 'success' || needs.Build_Frontend.result == 'skipped'
+    if: always() || needs.Build_API.result == 'success' || needs.Build_API.result == 'skipped' || needs.Build_Frontend.result == 'success' || needs.Build_Frontend.result == 'skipped'
     needs: [Build_API,Build_Jupyter,Build_Frontend]
     steps:
       - run: |
-          echo "Creater Server"
+          if ${{ github.event.inputs.mode == 'full' || github.event.inputs.mode == 'minmum' }}; then
+                echo "Server Creating"
+          else
+                echo "Script Exited"
+                exit
+          fi
+          
 
